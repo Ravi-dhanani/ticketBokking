@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import VariauntSelect from "./VariauntSelect";
 
 export default function MovieDetail() {
+  let [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <div className="p-6 flex flex-col justify-start">
@@ -50,12 +52,14 @@ export default function MovieDetail() {
         <div className="mt-5">
           <button
             type="button"
-            className="text-white bg-red-500   font-medium rounded-lg text-sm px-10 py-2.5 mr-2 "
+            className="text-white bg-red-500   font-medium rounded-lg text-sm px-10 py-2.5 mr-2"
+            onClick={() => setIsOpen(true)}
           >
             Book Ticket
           </button>
         </div>
       </div>
+      {isOpen && <VariauntSelect isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   );
 }
